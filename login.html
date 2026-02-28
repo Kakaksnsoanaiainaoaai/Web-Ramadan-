@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login / Daftar Ramadan</title>
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="moon"></div> <!-- bulan di background -->
+
+<div class="auth-container">
+    <!-- REGISTER -->
+    <div class="auth-card" id="registerCard">
+        <h2>Daftar Akun</h2>
+        <input type="text" id="regUsername" placeholder="Username" required>
+        <input type="password" id="regPassword" placeholder="Password" required>
+        <button id="registerBtn">Daftar</button>
+        <p>Sudah punya akun? <span id="toLogin">Login di sini</span></p>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="auth-card" id="loginCard" style="display:none;">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button id="loginBtn">Masuk</button>
+        <p>Belum punya akun? <span id="toRegister">Daftar di sini</span></p>
+        <p id="loginError" style="color:red; font-size:0.9rem;"></p>
+    </div>
+</div>
+
+<!-- LOADING ANIMASI -->
+<div class="loading" id="loading" style="display:none;">
+    <div class="moon-circle"></div>
+</div>
+<script src="login.js"></script>
+</body>
+</html>

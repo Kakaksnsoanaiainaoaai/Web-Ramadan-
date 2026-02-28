@@ -1,0 +1,83 @@
+/* =========================
+   CONTAINER
+========================= */
+.container {
+    width: 92%;
+    max-width: 900px;
+    margin: 40px auto 60px auto;
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 1.8rem;
+}
+
+.info {
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+/* =========================
+   CARD HARI FULL
+========================= */
+.sholat-full {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sholat-day-full {
+    background: rgba(255,255,255,0.05);
+    border-radius: 18px;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    transition: all 0.35s ease;
+}
+
+.sholat-day-full:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(255,215,0,0.25);
+}
+
+.sholat-day-full h3 {
+    margin-bottom: 12px;
+    color: #ffd700;
+    font-size: 1rem;
+}
+
+/* LIST */
+.sholat-day-full ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+}
+
+.sholat-day-full li {
+    background: rgba(255,215,0,0.12);
+    padding: 8px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.sholat-day-full li:hover {
+    background: rgba(255,215,0,0.3);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 15px rgba(255,215,0,0.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .container h1 {
+        font-size: 1.5rem;
+    }
+
+    .sholat-day-full ul {
+        grid-template-columns: 1fr 1fr;
+    }
+}

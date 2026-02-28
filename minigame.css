@@ -1,0 +1,256 @@
+/* Reset & layout dasar */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0b132b;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(28,37,65,0.85);
+    backdrop-filter: blur(10px);
+}
+
+.navbar .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 6px rgba(255,215,0,0.7);
+}
+
+.back-link {
+    color: #00c3ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.mini-game {
+    background: rgba(28,37,65,0.85);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.mini-game h2 {
+    font-size: 1.6rem;
+    color: #ffd700;
+    text-shadow: 0 0 6px rgba(255,215,0,0.7);
+    margin-bottom: 10px;
+}
+
+.kurma-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px 0;
+    min-height: 80px;
+}
+
+.kurma {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    background: #d2691e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255,140,0,0.7);
+    transition: transform 0.2s;
+}
+
+.kurma:hover {
+    transform: scale(1.2);
+}
+
+.answers {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+
+.answers button {
+    padding: 8px 16px;
+    background: #ffd700;
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.answers button:hover {
+    background: #ffea00;
+    transform: translateY(-2px);
+}
+
+#timer, #score {
+    margin: 6px 0;
+    font-size: 1rem;
+    color: #00c3ff;
+    text-shadow: 0 0 5px rgba(0,195,255,0.6);
+}
+
+
+/* =========================
+   MINI GAME PREVIEW
+========================= */
+
+.minigame-preview {
+
+    background: rgba(255,255,255,0.08);
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    margin: 25px auto;
+
+    max-width: 500px;
+
+    text-align: center;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 0 15px rgba(255,215,0,0.15);
+
+}
+
+.minigame-preview h3 {
+
+    color: #ffd700;
+
+    margin-bottom: 10px;
+
+}
+
+.kurma-container {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    margin: 10px 0;
+
+}
+
+.kurma {
+
+    font-size: 22px;
+
+    animation: fadeIn 0.3s ease;
+
+}
+
+.game-controls {
+
+    margin-top: 10px;
+
+}
+
+.game-controls input {
+
+    padding: 6px;
+
+    width: 120px;
+
+    border-radius: 8px;
+
+    border: none;
+
+    outline: none;
+
+}
+
+.game-controls button {
+
+    padding: 6px 12px;
+
+    margin-left: 5px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: linear-gradient(90deg,#ffd700,#ffb400);
+
+    color: black;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+.game-controls button:hover {
+
+    transform: scale(1.05);
+
+}
+
+#previewResult {
+
+    margin-top: 10px;
+
+    font-weight: bold;
+
+}
+
+.minigame-preview .view-full {
+
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 6px 12px;
+
+    border-radius: 8px;
+
+    background: rgba(255,215,0,0.15);
+
+    color: #ffd700;
+
+    text-decoration: none;
+
+}
+
+.minigame-preview .view-full:hover {
+
+    background: rgba(255,215,0,0.3);
+
+}
+
+/* LIGHT MODE */
+
+body.light .minigame-preview {
+
+    background: rgba(0,0,0,0.05);
+
+    color: #111;
+
+}
+
+body.light .minigame-preview h3 {
+
+    color: #cc9a00;
+
+}

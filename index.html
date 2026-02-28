@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffd700">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading Ramadan</title>
+<style>
+
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* BODY */
+body {
+    height:100vh;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #0f0f0f 70%);
+    font-family:'Segoe UI', sans-serif;
+    overflow:hidden;
+}
+
+/* CENTER WRAPPER */
+.loader {
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CORE AREA */
+.core {
+    position:relative;
+    width:180px;
+    height:180px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* LOGO */
+#logo {
+    font-size:46px;
+    color:#ffd700;
+    z-index:2;
+    animation:pulse 2s ease-in-out infinite;
+    text-shadow:
+        0 0 15px rgba(255,215,0,0.8),
+        0 0 40px rgba(255,215,0,0.3);
+}
+
+/* ORBIT DOT */
+.orbit {
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:#ffd700;
+    border-radius:50%;
+    box-shadow:0 0 12px rgba(255,215,0,0.9);
+    animation:orbit 4s linear infinite;
+}
+
+.orbit:nth-child(2){ animation-delay:1.3s; }
+.orbit:nth-child(3){ animation-delay:2.6s; }
+
+/* ANIMATIONS */
+@keyframes pulse {
+    50% { transform:scale(1.08); }
+}
+
+@keyframes orbit {
+    0%   { transform:rotate(0deg) translateX(70px) rotate(0deg); }
+    100% { transform:rotate(360deg) translateX(70px) rotate(-360deg); }
+}
+
+</style>
+</head>
+<body>
+
+<div class="loader">
+  <div class="core">
+    <div id="logo">🌙</div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+  </div>
+</div>
+
+<script>
+// LOADING SIMULASI → LANGSUNG KE DASHBOARD.HTML
+setTimeout(() => {
+    document.body.classList.add('fade-out');
+    setTimeout(() => {
+        window.location.href = 'dashboard.html';
+    }, 700);
+}, 3000); // durasi loading
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
+</body>
+</html>

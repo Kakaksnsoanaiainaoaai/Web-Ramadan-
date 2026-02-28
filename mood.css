@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin:0; padding:0;
+    background: #f5f5f5;
+    color:#333;
+}
+
+.navbar {
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    background:#007acc;
+    padding:10px 20px;
+    color:white;
+}
+
+.hamburger span{
+    display:block;
+    width:25px;
+    height:3px;
+    background:white;
+    margin:4px 0;
+    cursor:pointer;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    margin-left:15px;
+}
+
+.mood-container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding:20px;
+    background:white;
+    border-radius:10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.emoji-buttons {
+    display:flex;
+    justify-content: space-around;
+    margin-bottom:20px;
+}
+
+.emoji-buttons button {
+    font-size:2rem;
+    cursor:pointer;
+    padding:10px;
+    border:none;
+    background:#eee;
+    border-radius:10px;
+    transition:0.2s;
+}
+
+.emoji-buttons button:hover {
+    background:#007acc;
+    color:white;
+}

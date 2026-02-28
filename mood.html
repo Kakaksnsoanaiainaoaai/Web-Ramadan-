@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mood Tracker Ramadan</title>
+<link rel="stylesheet" href="mood.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR / HAMBURGER -->
+<div class="navbar">
+    <div class="logo">🌙 Mood Tracker Ramadan</div>
+    <div id="hamburger" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div id="navMenu" class="menu">
+        <a href="dashboard.html">Kembali</a>
+    </div>
+</div>
+
+<div class="mood-container">
+    <h2>📅 Pilih Mood Hari Ini</h2>
+    <div class="emoji-buttons">
+        <button data-mood="Senang">😄</button>
+        <button data-mood="Biasa">😐</button>
+        <button data-mood="Sedih">😔</button>
+        <button data-mood="Lelah">😴</button>
+    </div>
+
+    <h3>📊 Tren Mood Ramadan</h3>
+    <canvas id="moodChart" width="600" height="300"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="mood.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

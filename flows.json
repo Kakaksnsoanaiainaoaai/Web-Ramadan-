@@ -1,0 +1,104 @@
+{
+  "menu": {
+    "reply": "Halo 👋 Saya V-Bot.\nSilakan pilih kebutuhan Anda 😊",
+    "next": [
+      { "text": "📢 Update Website", "key": "update" },
+      { "text": "ℹ️ Tentang Website", "key": "tentang" },
+      { "text": "❓ Bantuan", "key": "bantuan" },
+      { "text": "📞 Kontak Admin", "key": "kontak" }
+    ]
+  },
+
+  "update": {
+    "reply": "Berikut informasi update sistem 🚀 -Update Penyesuaian Sistem CS & Update Perbaikan Beberapa Bug",
+    "next": [
+      { "text": "Detail Update", "key": "detail_update" },
+      { "text": "Roadmap", "key": "roadmap" },
+      { "text": "Kembali", "key": "menu" }
+    ]
+  },
+
+  "detail_update": {
+    "reply": "Update terbaru membawa:\n✅ CS Bot\n✅ Mode Interaktif\n✅ Optimalisasi Mobile",
+    "next": [
+      { "text": "Kembali", "key": "update" }
+    ]
+  },
+
+  "roadmap": {
+    "reply": "Rencana fitur selanjutnya:\n🔹 AI Chat\n🔹 Login User\n🔹 Dashboard Personal",
+    "next": [
+      { "text": "Kembali", "key": "update" }
+    ]
+  },
+
+  "tentang": {
+    "reply": "RamadanDash adalah website interaktif sederhana yang dikembangkan oleh VoidenX12.",
+    "next": [
+      { "text": "Siapa Developer?", "key": "developer" },
+      { "text": "Teknologi", "key": "teknologi" },
+      { "text": "Kembali", "key": "menu" }
+    ]
+  },
+
+  "developer": {
+    "reply": "Website ini dikembangkan secara mandiri sebagai project digital interaktif.",
+    "next": [
+      { "text": "Kembali", "key": "tentang" }
+    ]
+  },
+
+  "teknologi": {
+    "reply": "Website menggunakan:\n⚡ HTML\n⚡ CSS\n⚡ JavaScript\n⚡ JSON Flow System",
+    "next": [
+      { "text": "Kembali", "key": "tentang" }
+    ]
+  },
+
+  "bantuan": {
+    "reply": "Silakan pilih bantuan yang dibutuhkan:",
+    "next": [
+      { "text": "Website Error", "key": "error" },
+      { "text": "Tidak Bisa Akses", "key": "akses" },
+      { "text": "Fitur Tidak Jalan", "key": "fitur" },
+      { "text": "Kembali", "key": "menu" }
+    ]
+  },
+
+  "error": {
+    "reply": "Jika terjadi error:\n1️⃣ Refresh halaman\n2️⃣ Hapus cache browser\n3️⃣ Gunakan mode normal",
+    "next": [
+      { "text": "Masih Error", "key": "kontak" },
+      { "text": "Kembali", "key": "bantuan" }
+    ]
+  },
+
+  "akses": {
+    "reply": "Pastikan koneksi internet stabil dan browser sudah diperbarui.",
+    "next": [
+      { "text": "Kembali", "key": "bantuan" }
+    ]
+  },
+
+  "fitur": {
+    "reply": "Beberapa fitur masih tahap pengembangan 🚧",
+    "next": [
+      { "text": "Lihat Update", "key": "update" },
+      { "text": "Kembali", "key": "bantuan" }
+    ]
+  },
+
+  "kontak": {
+    "reply": "Silakan hubungi admin melalui:\n📧 Email: ramadandasha@gmail.com\n💬 WhatsApp: Segera tersedia",
+    "next": [
+      { "text": "Kembali ke Menu", "key": "menu" }
+    ]
+  },
+
+  "fallback": {
+    "reply": "Maaf, pilihan tidak dikenali 😅",
+    "next": [
+      { "text": "Kembali ke Menu", "key": "menu" }
+    ]
+  }
+}

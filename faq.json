@@ -1,0 +1,14 @@
+[
+  {
+    "keywords":["error","bug","rusak"],
+    "reply":"Silakan refresh halaman atau hapus cache browser."
+  },
+  {
+    "keywords":["login","masuk akun"],
+    "reply":"Fitur login masih tahap pengembangan."
+  },
+  {
+    "keywords":["kontak","admin"],
+    "reply":"Silakan hubungi admin melalui menu kontak."
+  }
+]

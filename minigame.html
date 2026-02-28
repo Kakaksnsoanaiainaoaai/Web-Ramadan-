@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffd700">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Game Ramadan</title>
+<link rel="stylesheet" href="minigame.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">🌙 Ramadan Fun Game</div>
+    <a href="dashboard.html" class="back-link">← Dashboard</a>
+</div>
+
+<!-- GAME CONTAINER -->
+<main class="container">
+
+    <section id="game" class="mini-game">
+
+        <h2 class="game-title">Tebak Jumlah Kurma 🌰</h2>
+
+        <p id="gameInstructions" class="instructions">
+            Hitung jumlah kurma yang muncul sebelum waktu habis!
+        </p>
+
+        <!-- INFO BAR -->
+        <div class="info-bar">
+
+            <div id="timer" class="info-box">
+                Waktu: 20
+            </div>
+
+            <div id="score" class="info-box">
+                Score: 0
+            </div>
+
+            <div id="highScore" class="info-box highscore">
+                High Score: 0
+            </div>
+
+        </div>
+
+        <!-- AREA KURMA -->
+        <div id="kurmaContainer" class="kurma-container"></div>
+
+        <!-- AREA JAWABAN -->
+        <div id="answers" class="answers"></div>
+
+    </section>
+
+</main>
+
+<script src="minigame.js"></script>
+
+</body>
+</html>

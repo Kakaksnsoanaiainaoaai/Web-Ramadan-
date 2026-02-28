@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>V-Bot Admin Panel</title>
+
+<style>
+body{
+    background:#0b1020;
+    color:white;
+    font-family:Segoe UI;
+    padding:20px;
+}
+
+textarea{
+    width:100%;
+    height:400px;
+    background:#111;
+    color:#00ffa6;
+    border:none;
+    padding:15px;
+    border-radius:10px;
+}
+
+button{
+    margin-top:15px;
+    padding:10px 20px;
+    background:#ffd700;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h2>⚙️ V-Bot Flow Editor</h2>
+
+<textarea id="editor"></textarea>
+
+<br>
+<button onclick="saveFlows()">💾 Simpan Flow</button>
+
+<script>
+
+const editor = document.getElementById("editor");
+
+/* LOAD FLOW */
+function loadFlows(){
+
+    const saved =
+        localStorage.getItem("flows");
+
+    if(saved){
+        editor.value =
+            JSON.stringify(
+                JSON.parse(saved),
+                null,
+                2
+            );
+    }else{
+
+        fetch("flows.json")
+        .then(r=>r.json())
+        .then(data=>{
+            editor.value =
+                JSON.stringify(data,null,2);
+        });
+
+    }
+}
+
+function saveFlows(){
+
+    try{
+
+        const json =
+            JSON.parse(editor.value);
+
+        localStorage.setItem(
+            "flows",
+            JSON.stringify(json)
+        );
+
+        alert("Flow berhasil disimpan ✅");
+
+    }catch{
+        alert("JSON ERROR ❌");
+    }
+}
+
+loadFlows();
+
+</script>
+
+</body>
+</html>

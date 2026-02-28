@@ -1,0 +1,203 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html,body{
+    height:100%;
+}
+
+/* BODY */
+body{
+    background:linear-gradient(180deg,#0b1020,#070b18);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ================= MAIN CARD ================= */
+
+.chat-card{
+    width:100%;
+    max-width:420px;
+    height:100vh;
+    max-height:100%;
+    background:linear-gradient(180deg,#1b1e35,#191a2f);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+/* DESKTOP STYLE */
+@media (min-width:768px){
+    body{
+        padding:40px;
+    }
+
+    .chat-card{
+        height:650px;
+        border-radius:28px;
+        box-shadow:
+            0 25px 60px rgba(0,0,0,0.6),
+            inset 0 0 40px rgba(255,255,255,0.02);
+    }
+}
+
+/* ================= HEADER ================= */
+
+.chat-header{
+    background:#08142d;
+    color:#ffd700;
+    font-weight:700;
+    text-align:center;
+    padding:18px 20px 10px 20px;
+    font-size:18px;
+}
+
+.dev-credit{
+    font-size:11px;
+    font-weight:400;
+    color:#aaa;
+    margin-top:4px;
+    letter-spacing:.5px;
+}
+
+/* ================= BODY ================= */
+
+.chat-body{
+    flex:1;
+    padding:20px;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+/* ================= FOOTER ================= */
+
+.chat-footer{
+    padding:20px;
+    display:flex;
+    justify-content:center;
+    border-top:1px solid rgba(255,255,255,0.05);
+}
+
+/* HOME BUTTON */
+.home-btn{
+    background:#ffd700;
+    color:#111;
+    border:none;
+    padding:10px 28px;
+    border-radius:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.home-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(255,215,0,0.4);
+}
+
+/* ================= MESSAGE ================= */
+
+.message{
+    max-width:80%;
+    padding:12px 16px;
+    border-radius:18px;
+    font-size:14px;
+    animation:fadeIn .3s ease;
+    word-wrap:break-word;
+}
+
+.bot{
+    background:#18a8d8;
+    color:#fff;
+    align-self:flex-start;
+    border-bottom-left-radius:6px;
+    box-shadow:0 8px 20px rgba(0,195,255,0.25);
+}
+
+.user{
+    background:#ffd700;
+    color:#111;
+    align-self:flex-end;
+    border-bottom-right-radius:6px;
+    box-shadow:0 8px 20px rgba(255,215,0,0.3);
+}
+
+/* ================= TYPING ================= */
+
+.typing{
+    background:#2a2a40;
+    padding:10px 14px;
+    border-radius:15px;
+    border-bottom-left-radius:5px;
+    display:inline-flex;
+    gap:4px;
+}
+
+.typing span{
+    width:6px;
+    height:6px;
+    background:#fff;
+    border-radius:50%;
+    animation:bounce 1.2s infinite ease-in-out;
+}
+
+.typing span:nth-child(2){animation-delay:.2s;}
+.typing span:nth-child(3){animation-delay:.4s;}
+
+@keyframes bounce{
+    0%,80%,100%{transform:scale(.6);opacity:.4;}
+    40%{transform:scale(1);opacity:1;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(8px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* ================= QUICK BUTTONS ================= */
+
+.quick{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+    margin-top:10px;
+}
+
+.quick button{
+    background:#2a2a40;
+    color:#fff;
+    border:none;
+    padding:6px 14px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:12px;
+    transition:.2s;
+}
+
+.quick button:hover{
+    background:#ffd700;
+    color:#111;
+}
+
+/* ================= SMALL DEVICE TWEAK ================= */
+
+@media (max-width:480px){
+    .chat-body{
+        padding:15px;
+    }
+
+    .message{
+        font-size:13px;
+    }
+
+    .home-btn{
+        width:100%;
+    }
+}

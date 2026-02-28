@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics Internal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">🌙 Dashboard Analytics</div>
+    <div id="hamburger" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div id="navMenu" class="menu">
+        <a href="dashboard.html">Home</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="login.html">Login</a>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div class="analytics-container">
+    <h2>📊 Statistik Aktivitas</h2>
+
+    <!-- filter -->
+    <div class="filter-controls">
+        <label>
+            <select id="activityFilter">
+                <option value="all">Semua Aktivitas</option>
+                <option value="miniGame">Mini Game</option>
+                <option value="badge">Badge</option>
+                <option value="login">Login</option>
+            </select>
+        </label>
+    </div>
+
+    <!-- canvas chart -->
+    <canvas id="activityChart" width="600" height="300"></canvas>
+
+    <!-- list aktivitas -->
+    <div id="activityList" class="activity-list"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="analytics.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
