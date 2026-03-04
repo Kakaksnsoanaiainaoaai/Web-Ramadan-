@@ -278,8 +278,8 @@ status.classList.remove("special-gold");
 
 if (safeDay === 15) {
     // Pertengahan Ramadan
-    bar.classList.add("special");
-    status.classList.add("special");
+    bar.classList.add("special-gold");
+    status.classList.add("special-gold");
     status.textContent += " ✨ Pertengahan Ramadan!";
 } else if (safeDay >= 28) {
     // Hampir akhir Ramadan sampai Idul Fitri
