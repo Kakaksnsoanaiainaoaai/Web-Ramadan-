@@ -1,0 +1,1872 @@
+/* =========================
+   RESET DASAR
+========================= */
+
+html{
+    scroll-behavior:smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   DARK MODE (DEFAULT)
+========================= */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #121212;
+    padding-top: 70px;
+    color: #e4e4e4;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    height: 64px; /* ⭐ WAJIB */
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 18px;
+
+    background: rgba(20,20,20,0.88);
+    backdrop-filter: blur(6px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    z-index: 999;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:20px;
+    font-weight:700;
+}
+
+.logo img{
+    height:40px;   /* ⭐ ikut navbar */
+    width:auto;
+    flex-shrink:0;
+    object-fit:contain;
+}
+
+@media (max-width:480px){
+
+    .navbar{
+        height:56px;
+    }
+
+    .logo{
+        font-size:17px;
+        gap:6px;
+    }
+
+    .logo img{
+        height:30px;
+    }
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+body:not(.light) .logo {
+    color: #ffffff;
+
+    text-shadow:
+        0 0 6px rgba(255,255,255,0.08),
+        0 0 14px rgba(0,200,255,0.25);
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light .logo {
+    color: #111;
+
+    text-shadow:
+        0 0 4px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   MENU DROPDOWN (BLUR TURUN)
+========================= */
+
+.menu {
+    position: absolute;
+    top: 65px;
+    right: 15px;
+    width: 210px;
+
+    background: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(6px); /* dari 18px ➜ 6px */
+
+    border-radius: 18px;
+    padding: 12px 0;
+
+    display: flex;
+    flex-direction: column;
+
+    max-height: 80vh;
+    overflow-y: auto;
+
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+
+    transition: opacity 0.25s ease, transform 0.25s ease;
+
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* =========================
+   CARD (SHADOW DIKECILIN)
+========================= */
+
+.card {
+    background: rgba(28, 28, 28, 0.92);
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.28); /* lebih ringan */
+}
+
+.clock{
+    position: relative;
+    font-size:52px;
+    font-weight:700;
+    letter-spacing:3px;
+    color:#00ffa6;
+}
+
+.clock::after{
+    content: attr(data-time);
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:-1;
+
+    color:#00ffa6;
+    filter: blur(6px);
+    opacity:.4;
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light {
+    background: #f1f5f9;
+    color: #111;
+}
+
+body.light .navbar {
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(4px);
+}
+
+body.light .menu {
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(6px);
+}
+
+body.light .menu a {
+    color: #111;
+}
+
+body.light .card {
+    background: rgba(255,255,255,0.9);
+}
+
+/* =========================
+   HAMBURGER MORPH STYLE
+========================= */
+
+.hamburger {
+    width: 30px;
+    height: 22px;
+    position: relative;
+    cursor: pointer;
+}
+
+.hamburger span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 0.35s ease, opacity 0.25s ease;
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 10px; }
+.hamburger span:nth-child(3) { top: 20px; }
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* =========================
+   MENU SHOW
+========================= */
+
+.menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* =========================
+   MENU ITEM (GPU FRIENDLY)
+========================= */
+
+.menu a {
+    padding: 12px 20px;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    position: relative;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.menu a:hover {
+    transform: translateX(6px); /* lebih ringan dari padding */
+    background: rgba(255,255,255,0.05);
+}
+
+.clock {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: opacity 0.25s ease;
+}
+
+.info {
+    font-size: 18px;
+    margin: 5px 0;
+    opacity: 0.9;
+}
+
+/* =========================
+   CARD HALAMAN LAIN
+========================= */
+
+.card {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 25px;
+    border-radius: 15px;
+
+    background: rgba(28, 37, 65, 0.88);
+    backdrop-filter: blur(4px); /* dari 10px ➜ 4px */
+
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25); /* lebih ringan */
+
+    animation: fadeUp 0.35s ease;
+}
+
+.card h1 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* =========================
+   ANIMASI (LEBIH RINGAN)
+========================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px); /* dari 20px ➜ 12px */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   WELCOME TEXT
+========================= */
+
+.welcome-text {
+    text-align: center;
+    margin: 80px auto 20px auto;
+    max-width: 600px;
+    font-family: Arial, sans-serif;
+    opacity: 0.9;
+}
+
+body.dark .welcome-text {
+    color: #fff;
+}
+
+body.light .welcome-text {
+    color: #222;
+}
+
+.welcome-text h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.welcome-text p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    text-align:center;
+    padding:12px 10px;
+    font-size:14px;
+
+    background:rgba(0,0,0,0.45);
+    color:#ffffff;
+
+    opacity:0.95;
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light .footer{
+
+    background:rgba(255,255,255,0.9);
+    color:#000;
+
+    border-top:1px solid rgba(0,0,0,0.08);
+}
+
+.daily-quote {
+    text-align: center;
+    font-size: 16px;
+    font-style: italic;
+    margin: 15px auto;
+    max-width: 600px;
+    color: #fff;
+    opacity: 0.9;
+    transition: opacity 0.5s ease;
+}
+
+body.light .daily-quote {
+    color: #222;
+}
+
+/* Highlight progress bar spesial */
+.progress-bar.special {
+    background: linear-gradient(90deg, #ffd700, #ff8c00); /* emas / gold */
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.35),
+    0 2px 6px rgba(0,0,0,0.2);;
+}
+.status.special {
+    color: #ff8c00;
+    font-weight: bold;
+}
+
+/* Day 28 – 30 highlight emas */
+.progress-bar.special-gold {
+    background: linear-gradient(90deg, #ffd700, #ffb400); /* gradient emas */
+    box-shadow: 0 0 15px rgba(255,215,0,0.7);
+}
+
+.status.special-gold {
+    color: #ffb400; /* teks emas */
+    font-weight: bold;
+}
+
+/* Glow untuk progress bar biru (Day 15) */
+.progress-bar.special {
+    background: #00bfff; /* biru */
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.35),
+    0 2px 6px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+/* Glow untuk progress bar emas (Day 28–30) */
+.progress-bar.special-gold {
+    background: linear-gradient(90deg, #ffd700, #ffb400);
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.35),
+    0 2px 6px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+/* Glow untuk status teks biru */
+.status.special {
+    color: #00bfff;
+    text-shadow: 0 0 8px rgba(0,191,255,0.7);
+    font-weight: bold;
+}
+
+/* Glow untuk status teks emas */
+.status.special-gold {
+    color: #ffb400;
+    text-shadow: 0 0 12px rgba(255,215,0,0.8);
+    font-weight: bold;
+}
+
+/* === SHOLAT PREVIEW 3 HARI FINAL CLEAN === */
+.sholat-preview {
+    background-color: rgba(20, 20, 20, 0.9); /* default dark */
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sholat-preview h3 {
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    color: #ffd700; /* dark mode emas */
+    text-shadow: 0 0 4px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+.sholat-preview .sholat-day {
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 6px 0;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease;
+}
+
+.sholat-preview .sholat-day:hover {
+    background-color: rgba(255, 215, 0, 0.2); /* hover glow emas */
+}
+
+.sholat-preview .view-full {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #ffd700;
+    color: #111;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.sholat-preview .view-full:hover {
+    background-color: #ffea00;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+/* === SHOLAT PREVIEW 3 HARI */
+body.light .sholat-preview {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #111;
+}
+
+body.light .sholat-preview h3 {
+    color: #111; /* teks tetap hitam */
+    text-shadow: 1px 1px 3px #ffd700; /* shadow kuning */
+}
+
+body.light .sholat-preview .sholat-day {
+    background-color: rgba(0,0,0,0.05);
+}
+
+body.light .sholat-preview .sholat-day:hover {
+    background-color: rgba(255, 215, 0, 0.2);
+}
+
+body.light .sholat-preview .view-full {
+    background-color: #ffd700;
+    color: #000;
+}
+
+body.light .sholat-preview .view-full:hover {
+    background-color: #ffea00;
+}
+
+/* FONT dan TRANSISI */
+.sholat-preview, .sholat-preview .sholat-day, .sholat-preview .view-full {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+body.light {
+    background: #f1f5f9;
+    color: #111;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+    max-width: 900px;
+    margin: 80px auto 40px auto; /* margin atas biar ga ketutup navbar */
+    padding: 0 15px;
+}
+
+/* =========================
+   HEADER HALAMAN
+========================= */
+.page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    font-size: 1rem;
+    color: #ffd700;
+    text-shadow: 0 0 6px rgba(255,215,0,0.5);
+}
+
+/* =========================
+   CARD HARIAN JADWAL (UPGRADE)
+========================= */
+
+.jadwal-card {
+    position: relative;
+    background: rgba(28, 28, 28, 0.9);
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 25px;
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.35),
+    0 2px 6px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
+    overflow: hidden;
+    animation: fadeUp 0.8s ease both;
+}
+
+/* subtle animated border glow */
+.jadwal-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 1px;
+    background: linear-gradient(120deg, transparent, rgba(255,215,0,0.4), transparent);
+    background-size: 200% 200%;
+    animation: borderMove 5s linear infinite;
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+}
+
+@keyframes borderMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+body.light .jadwal-card {
+    background: rgba(255,255,255,0.95);
+    color: #111;
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.35),
+    0 2px 6px rgba(0,0,0,0.2);;
+}
+
+.jadwal-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.35),
+    0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   HARI & TANGGAL
+========================= */
+
+.jadwal-card .day-header {
+    font-weight: bold;
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+}
+
+.jadwal-card .date {
+    font-size: 0.95rem;
+    color: #ccc;
+    transition: 0.3s ease;
+}
+
+body.light .jadwal-card .date {
+    color: #555;
+}
+
+/* =========================
+   WAKTU SHOLAT
+========================= */
+
+.jadwal-card .sholat-times {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 14px;
+}
+
+.jadwal-card .sholat-times span {
+    flex: 0 0 48%;
+    background: rgba(255,255,255,0.05);
+    padding: 9px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+body.light .jadwal-card .sholat-times span {
+    background: rgba(0,0,0,0.05);
+    color: #111;
+}
+
+.jadwal-card .sholat-times span:hover {
+    background: rgba(255,215,0,0.25);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.35),
+    0 2px 6px rgba(0,0,0,0.2);
+}
+
+.jadwal-card .sholat-times span:active {
+    transform: scale(0.96);
+}
+
+/* =========================
+   VIEW FULL BUTTON
+========================= */
+
+.view-full-jadwal {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 18px;
+    background: linear-gradient(90deg,#ffd700,#ffb400);
+    color: #111;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.view-full-jadwal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,215,0,0.4);
+}
+
+/* shine effect */
+.view-full-jadwal::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.7),
+        transparent
+    );
+    transform: skewX(-25deg);
+}
+
+.view-full-jadwal:hover::after {
+    animation: shine 0.8s forwards;
+}
+
+@keyframes shine {
+    100% { left: 125%; }
+}
+
+/* =========================
+   FADE UP ANIMATION
+========================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 12px 0;
+    font-size: 14px;
+    color: #aaa;
+}
+
+body.light .footer {
+    color: #555;
+}
+
+/* =========================
+   MINI GAME PREVIEW (UPGRADED)
+========================= */
+
+.minigame-preview {
+    position: relative;
+    background: rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 28px;
+    margin: 35px auto;
+    max-width: 520px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(255,215,0,0.15);
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+/* subtle animated glow border */
+.minigame-preview::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 1px;
+    background: linear-gradient(120deg, transparent, rgba(255,215,0,0.5), transparent);
+    background-size: 200% 200%;
+    animation: borderMove 4s linear infinite;
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+}
+
+@keyframes borderMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+.minigame-preview:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 0 35px rgba(255,215,0,0.35);
+}
+
+.minigame-preview h3 {
+    color: #ffd700;
+    margin-bottom: 12px;
+    transition: 0.3s ease;
+}
+
+/* =========================
+   KURMA FLOAT + GLOW
+========================= */
+
+.kurma-preview {
+    font-size: 28px;
+    margin: 18px 0;
+    letter-spacing: 6px;
+    animation: floating 3s ease-in-out infinite, glowPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes glowPulse {
+    0% { text-shadow: 0 0 5px rgba(255,215,0,0.4); }
+    50% { text-shadow: 0 0 18px rgba(255,215,0,0.8); }
+    100% { text-shadow: 0 0 5px rgba(255,215,0,0.4); }
+}
+
+.preview-desc {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-bottom: 18px;
+}
+
+/* =========================
+   PLAY BUTTON PREMIUM
+========================= */
+
+.play-button {
+    position: relative;
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: linear-gradient(90deg,#ffd700,#ffb400);
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.play-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,215,0,0.4);
+}
+
+/* shine effect */
+.play-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.7),
+        transparent
+    );
+    transform: skewX(-25deg);
+}
+
+.play-button:hover::after {
+    animation: shine 0.8s forwards;
+}
+
+@keyframes shine {
+    100% {
+        left: 125%;
+    }
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light .minigame-preview {
+    background: rgba(0,0,0,0.05);
+    color: #111;
+}
+
+body.light .minigame-preview h3 {
+    color: #cc9a00;
+}
+
+/* =========================
+   RESPONSIVE - MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 80px 15px 80px 15px;
+    }
+
+    .clock {
+        font-size: 32px;
+    }
+
+    .welcome-text h2 {
+        font-size: 20px;
+    }
+
+    .welcome-text p {
+        font-size: 14px;
+    }
+
+    .progress-container {
+        max-width: 90%;
+        height: 10px;
+    }
+
+    .sholat-preview {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .minigame-preview {
+        max-width: 95%;
+        padding: 18px;
+    }
+
+    .menu {
+        width: 160px;
+        right: 10px;
+    }
+
+    .navbar {
+        padding: 12px 15px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+}
+
+
+/* =========================
+   RESPONSIVE - TABLET
+========================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .container {
+        padding: 90px 20px;
+    }
+
+    .clock {
+        font-size: 40px;
+    }
+
+}
+
+
+/* =========================
+   RESPONSIVE - LAPTOP / DESKTOP
+========================= */
+
+@media (min-width: 1025px) {
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .sholat-preview {
+        max-width: 600px;
+    }
+
+    .minigame-preview {
+        max-width: 600px;
+    }
+
+}
+
+/* =========================
+   MOBILE APP FEEL MODE
+========================= */
+
+@media (max-width: 600px) {
+
+    /* body feel app */
+    body {
+        padding-bottom: 80px;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* container center & nyaman */
+    .container {
+        padding: 90px 16px 20px 16px;
+        max-width: 100%;
+    }
+
+    /* navbar compact */
+    .navbar {
+        padding: 12px 16px;
+        height: 55px;
+    }
+
+    .logo {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    /* clock mobile */
+    .clock {
+        font-size: 34px;
+        margin-bottom: 5px;
+    }
+
+    /* info text */
+    #ramadanDay,
+    #progressText,
+    #remainingText,
+    #statusText,
+    #eidCountdown,
+    #countdownBuka,
+    #countdownSahur {
+        font-size: 14px;
+    }
+
+    /* preview cards */
+    .sholat-preview,
+    .minigame-preview {
+
+        width: 100%;
+
+        border-radius: 16px;
+
+        padding: 16px;
+
+        margin-top: 18px;
+
+        backdrop-filter: blur(12px);
+
+        box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+    }
+
+    /* preview title */
+    .sholat-preview h3,
+    .minigame-preview h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    /* preview items */
+    .sholat-day {
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    /* buttons mobile friendly */
+    button,
+    .view-full {
+
+        width: 100%;
+
+        padding: 12px;
+
+        border-radius: 12px;
+
+        font-size: 15px;
+
+        margin-top: 8px;
+
+    }
+
+    /* hamburger touch friendly */
+    .hamburger {
+        width: 28px;
+        height: 20px;
+    }
+
+    /* menu mobile style */
+    .menu {
+
+        width: 170px;
+
+        border-radius: 14px;
+
+    }
+
+    .menu a {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    /* footer mobile */
+    .footer {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+}
+
+
+/* =========================
+   SMOOTH TOUCH EFFECT
+========================= */
+
+button:active,
+.view-full:active,
+.menu a:active {
+
+    transform: scale(0.96);
+
+    transition: 0.1s;
+
+}
+
+
+/* =========================
+   CENTER CONTENT FOR DESKTOP
+========================= */
+
+@media (min-width: 1025px) {
+
+    .container {
+
+        max-width: 700px;
+
+        margin: auto;
+
+    }
+
+}
+
+#authArea{
+
+    margin-top:10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.auth-btn{
+
+    padding:10px;
+
+    background:linear-gradient(45deg,#ffd700,#ffb300);
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    color:black;
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+
+.auth-user{
+
+    color:#ffd700;
+
+    font-weight:bold;
+
+}
+
+.menu{
+
+    max-height:80vh;
+
+    overflow-y:auto;
+
+}
+
+/* ================= BADGE SYSTEM ================= */
+
+.badge-container{
+
+    margin-top: 30px;
+    padding: 20px;
+
+    background: rgba(255,255,255,0.05);
+
+    border-radius: 15px;
+
+    backdrop-filter: blur(10px);
+
+}
+
+.badge-list{
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 10px;
+
+}
+
+.badge{
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(135deg,#ffd700,#ffb300);
+
+    color: black;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    animation: badgeAppear 0.5s ease;
+
+}
+
+@keyframes badgeAppear{
+
+    from{
+
+        transform: scale(0.5);
+        opacity: 0;
+
+    }
+
+    to{
+
+        transform: scale(1);
+        opacity: 1;
+
+    }
+
+}
+
+/* =========================
+   AUTH AREA NAVBAR FIX
+========================= */
+
+/* authArea di navbar = horizontal */
+.navbar #authArea{
+
+    margin-top:0;
+
+    display:flex;
+
+    flex-direction:row;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+/* tombol login di navbar lebih kecil */
+.navbar .auth-btn{
+
+    padding:6px 12px;
+
+    font-size:14px;
+
+}
+
+/* username di navbar */
+.navbar .auth-user{
+
+    font-size:14px;
+
+}
+
+/* authArea di menu tetap vertical */
+.menu #authArea{
+
+    margin-top:10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.analytics-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(28,28,28,0.9);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* =========================
+   FILTER DROPDOWN ANALYTICS
+========================= */
+.filter-controls select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    outline: none;
+}
+
+body.light .filter-controls select {
+    background: rgba(0,0,0,0.05);
+    color: #111;
+}
+
+.filter-controls select:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+body.light .filter-controls select:hover {
+    background: rgba(0,0,0,0.1);
+}
+
+.health-tips-card {
+    background: rgba(28,28,28,0.85);
+    color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    text-align: center;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.health-tips-card h3 {
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    color: #ffd700;
+    text-shadow: 0 0 6px rgba(255,215,0,0.5);
+}
+
+.health-tips-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.health-tips-card button {
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(90deg,#ffd700,#ffb400);
+    color: #111;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.health-tips-card button:hover {
+    transform: scale(1.05);
+}
+
+/* Light mode */
+body.light .health-tips-card {
+    background: rgba(255,255,255,0.9);
+    color: #111;
+}
+
+body.light .health-tips-card h3 {
+    color: #cc9a00;
+    text-shadow: 1px 1px 3px #ffd700;
+}
+
+body.light .health-tips-card button {
+    background: linear-gradient(90deg,#ffd700,#ffb400);
+    color: #111;
+}
+
+/* =========================
+   POPUP WRAPPER (MODERN)
+========================= */
+
+.popup {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(6px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease;
+
+    z-index: 9999;
+}
+
+.popup.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* =========================
+   POPUP CONTENT (GLASS)
+========================= */
+
+.popup-content {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+
+    border-radius: 24px;
+    padding: 30px 25px;
+    width: 90%;
+    max-width: 420px;
+
+    text-align: center;
+    color: #fff;
+
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.35s ease;
+
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.popup.show .popup-content {
+    transform: translateY(0) scale(1);
+}
+
+/* =========================
+   TITLE & TEXT
+========================= */
+
+.popup-content h3 {
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    color: #ffd700;
+}
+
+.popup-content p {
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+/* =========================
+   CLOSE BUTTON (MODERN)
+========================= */
+
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.popup-close:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* =========================
+   BUTTON ACTION
+========================= */
+
+.popup-btn {
+    display: inline-block;
+    padding: 12px 22px;
+
+    background: linear-gradient(135deg, #d4af37, #ffd700);
+    color: #111;
+
+    text-decoration: none;
+    border-radius: 14px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.popup-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255,215,0,0.4);
+}
+
+body.light .popup-content {
+    background: #ffffff;
+    color: #111;
+    border: none;
+}
+
+body.light .popup-close {
+    background: rgba(0,0,0,0.08);
+}
+
+body.light .popup-close:hover {
+    background: rgba(0,0,0,0.15);
+}
+
+/* =========================
+   CONTAINER LAYOUT (LEBIH NATURAL)
+========================= */
+
+.container {
+    padding: 90px 16px 40px 16px;
+}
+
+/* =========================
+   MAIN CARD (LEBIH SLIM)
+========================= */
+
+.card {
+    width: 100%;
+    max-width: 420px; /* dari 500 ➜ 420 */
+
+    margin: 0 auto;
+
+    padding: 22px; /* dari 30 ➜ 22 */
+    border-radius: 16px;
+
+    background: rgba(25, 25, 35, 0.88);
+    backdrop-filter: blur(5px);
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+
+    text-align: center;
+
+    animation: fadeUp 0.35s ease;
+}
+
+/* =========================
+   CLOCK (DIKECILIN)
+========================= */
+
+.clock{
+    position:relative;
+    font-size:52px;
+    font-weight:700;
+    letter-spacing:3px;
+
+    color:#fff;
+
+    text-shadow:
+        0 0 4px rgba(0,255,166,0.5);
+
+    transform:translateZ(0);
+}
+
+/* =====================
+   LIGHT MODE
+===================== */
+body.light .clock{
+
+    color:#111; /* hitam */
+
+    text-shadow:none; /* hilang neon */
+}
+.clock::after{
+    content:attr(data-time);
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:-1;
+
+    color:#00ffa6;
+    filter:blur(6px);
+    opacity:.4;
+}
+
+/* light mode matikan glow */
+body.light .clock::after{
+    display:none;
+}
+
+/* =========================
+   INFO TEXT
+========================= */
+
+.info {
+    font-size: 14px; /* dari 16 ➜ 14 */
+    opacity: 0.85;
+    margin: 5px 0;
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress-container {
+    width: 100%;
+    height: 10px; /* dari 14 ➜ 10 */
+
+    background: rgba(255,255,255,0.08);
+
+    border-radius: 8px;
+    overflow: hidden;
+
+    margin: 16px 0 8px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+
+    background: linear-gradient(90deg, #00ffa6, #00c3ff);
+
+    border-radius: 8px;
+
+    transition: width 0.5s ease-in-out;
+}
+
+#chatBot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    z-index: 999;
+}
+
+#chatIcon {
+    width: 60px;
+    height: 60px;
+    background: #ffd700;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+#chatIcon:hover {
+    transform: scale(1.1);
+}
+
+#chatWindow {
+    display: none;
+    width: 280px;
+    background: #1c1c2e;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    overflow: hidden;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#chatHeader {
+    background: #0b132b;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+#chatHeader button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#chatBody {
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.botMessage {
+    background: #00c3ff;
+    padding: 8px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+#chatFooter {
+    padding: 8px;
+    text-align: center;
+}
+
+#chatFooter button {
+    padding: 6px 12px;
+    background: #ffd700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#chatFooter .chatLink {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #ffd700;
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+#chatFooter .chatLink:hover {
+    background: #ffea00;
+}
+
+.message,
+.chat-card,
+.quick button,
+.popup,
+.card {
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+}
+
+.chat-body{
+    overflow-y:auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.card,
+.progress,
+.chat-window{
+    will-change: transform;
+}
+
+/* SKY */
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  transition: background 2s ease;
+}
+
+/* SUN */
+.sun {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd76a, #ffb703);
+  box-shadow: 0 0 80px rgba(255, 183, 3, 0.6);
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+/* MOON */
+.moon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff, #d9d9d9);
+  box-shadow: 0 0 50px rgba(255,255,255,0.4);
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+/* STARS */
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: twinkle 4s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.2; }
+  to { opacity: 0.8; }
+}
+
+.weather-widget{
+position:fixed;
+bottom:20px;
+left:20px;
+
+display:flex;
+align-items:center;
+gap:10px;
+
+padding:10px 14px;
+
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+
+border-radius:14px;
+box-shadow:0 8px 25px rgba(0,0,0,0.2);
+
+font-family:sans-serif;
+color:white;
+
+z-index:1000;
+}
+
+#weatherIcon{
+font-size:24px;
+}
+
+.weather-info{
+display:flex;
+flex-direction:column;
+line-height:1.2;
+}
+
+#weatherTemp{
+font-size:16px;
+font-weight:600;
+}
+
+#weatherDesc{
+font-size:12px;
+opacity:0.8;
+}
