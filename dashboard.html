@@ -232,7 +232,15 @@ Mainkan Full Game →
 
 <!-- SCRIPT TARUH DI PALING BAWAH -->
 <script src="script.js"></script>
-
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = pos.coords.latitude;
+    const lon = pos.coords.longitude;
+    loadWeather(lat, lon); // function cuaca yang udah lu buat
+  });
+});
+</script>
 
 <footer class="footer">
 &copy; AL DEV 2026
